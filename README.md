@@ -13,5 +13,6 @@ While bilibili.com has become the Chinese young generation’s favorite video sh
 * *tname_tag_minitaag.csv* - The dataset contains supply-demand ratio and related information for content creators' tags and subtags.
 * *user_value_group.csv* - The dataset contains user evaluation information to segment users into groups based on their value.
 
+Dataset Disclaimer: We are solely responsible for the use of the datasets and for complying with applicable terms and conditions, including any use restrictions and attribution requirements. The datasets should not be re-used in any other projects.
 
 *This repo was initially generated from a bookdown template available here: https://github.com/jtr13/EDAVtemplate.*
