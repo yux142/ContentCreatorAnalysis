@@ -3,14 +3,15 @@
 
 While bilibili.com has become the Chinese young generation’s favorite video sharing platform, the number of its content creators reached a peak in recent years with a total of over 20 million+ active creators and an increase of 600k+ each month. However, while the growing speed of the quantity is optimistic, we want to take a deeper look at the quantity of the content creators. Furthermore, like other video-sharing platforms such as YouTube, creators with different size fan bases could be diverse; and the status for creators with varying topics of video could also be different. Therefore, in this project, we want to understand the status quo of bilibili’s content creators with various features and analyze the differences.
 
-*Potential datasets:*
+*Datasets:*
 
-This question has no online datasets available since bilibili.com does not post any public data of the content creators. However, since one of the group members is an ex-employee of bilibili.com, we have contacted bilibili.com asking about the possibility of using the data.
-
-* Dataset containing information of fans conversion rate for content creators with different fan base size level.  
-* Dataset containing information of average growing time for content creators to grow from preceding fan base size level to the next one for each fan base size.   
-* Dataset containing general information including unique visitors (uv), video count, total play count, active uv, and fan base size level for a one-year time interval for each fan base size.   
-* Other datasets depend on availability and we are currently awaiting further responses.  
+* *grow_gap_201702_202102.csv* - The dataset contains the average gap days for content creators to grow to the next fan base size level monthly.
+* *overall_status_201812_202103.csv* - The dataset contains general information for content creators in each fan base size level monthly.
+* *overall_status_tname_201812_202103.csv* - The dataset contains general information for content creators grouped by tag in each fan base size level monthly.
+* *play_conversion_202001_202105.csv* - The dataset contains conversion rate on user streaming funnel monthly.
+* *retention_201901_202103.csv* - The dataset contains content creator's retention information monthly.
+* *tname_tag_minitaag.csv* - The dataset contains supply-demand ratio and related information for content creators' tags and subtags.
+* *user_value_group.csv* - The dataset contains user evaluation information to segment users into groups based on their value.
 
 
 *This repo was initially generated from a bookdown template available here: https://github.com/jtr13/EDAVtemplate.*
