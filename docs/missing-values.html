@@ -24,7 +24,7 @@
 <meta name="author" content="Hongtao Jiang, Yujia Xie" />
 
 
-<meta name="date" content="2021-11-14" />
+<meta name="date" content="2021-11-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="data-transformation.html"/>
 <link rel="next" href="results.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -76,7 +76,11 @@
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>2</b> Data sources</a></li>
 <li class="chapter" data-level="3" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>3</b> Data transformation</a></li>
-<li class="chapter" data-level="4" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>4</b> Missing values</a></li>
+<li class="chapter" data-level="4" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>4</b> Missing values</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="missing-values.html"><a href="missing-values.html#summary"><i class="fa fa-check"></i><b>4.1</b> Summary</a></li>
+<li class="chapter" data-level="4.2" data-path="missing-values.html"><a href="missing-values.html#analysis"><i class="fa fa-check"></i><b>4.2</b> Analysis</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a></li>
 <li class="chapter" data-level="6" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>6</b> Interactive component</a></li>
 <li class="chapter" data-level="7" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>7</b> Conclusion</a></li>
@@ -101,7 +105,31 @@
             <section class="normal" id="section-">
 <div id="missing-values" class="section level1" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Missing values</h1>
+<div id="summary" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Summary</h2>
+<p>In this project, there is only one dataset contains missing values, the <code>overall_status_tname_201812_202103.csv</code> that contains general information for content creators grouped by tag in each fan base size level monthly. To understand the missing patterns, we call the plot_missing function to generate missing value pattern plot for the respective dataset.</p>
+</div>
+<div id="analysis" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Analysis</h2>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-5-1.png" width="1152" /></p>
+<p>Firstly, to gain a better understanding of the dataset, the column information is as followed:</p>
+<ul>
+<li><p><code>active_tname</code>: The tag for content creators. For example: Anime, Movie, V Log, etc.</p></li>
+<li><p><code>fans_label</code>: The fan base size label for content creators. It ranges from 0 to 5, representing smallest amount of subscriptions to largest amount of subscriptions.</p></li>
+<li><p><code>uu</code>: Number of unique content creators in the respective log_date month.</p></li>
+<li><p><code>uu_non</code>: Number of unique content creators in the respective log_date month that their fan base size level does not change from last month.</p></li>
+<li><p><code>uu_asc</code>: Number of unique content creators in the respective log_date month that their fan base size has increased from last month.</p></li>
+<li><p><code>uu_des</code>: Number of unique content creators in the respective log_date month that their fan base size has decreased from last month.</p></li>
+<li><p><code>uu_month_ratio</code> = Number of unique content creators in this month / Number of unique content creators in last month.</p></li>
+<li><p><code>uu_non_month_ratio</code>= <code>uu_non</code> this month / <code>uu_non</code> last month.</p></li>
+<li><p><code>uu_asc_month_ratio</code>= <code>uu_asc</code> this month / <code>uu_asc</code> last month.</p></li>
+<li><p><code>uu_des_month_ratio</code>= <code>uu_des</code> this month / <code>uu_des</code> last month.</p></li>
+</ul>
+<p>Based on the plot, there are four columns that contains missing values: <code>uu_month_ratio</code>, <code>uu_non_month_ratio</code>, <code>uu_asc_month_ratio</code>, and <code>uu_des_month_ratio</code>. These four variables are calculated using the last month’s number of unique content creators with the respective fan base size and tag name divided by this month’s number of unique content creators with the respective fan base size and tag name. In other words, they depend on <code>uu</code>, <code>uu_non</code>, <code>uu_asc</code>, and <code>uu_des</code>, respectively.</p>
+<p>While all the ratios are divided by a metric from last month, if the metric in last month is 0, the ratio would be NA. Therefore, all data entries in the earliest month would have all ratio data missing, resulting in missing all four ratios simultaneously. The columns with the highest missing percentage are <code>uu_asc</code> and <code>uu_des</code>. The reason is that there are a limited number of subscribers for some particular tag and fan base size level, so the probability of the number of content creators in the respective log_date month that their fan base size has increased/decreased from last month is comparably low.</p>
+<p>In conclusion, the reason for all missing values is that last month’ <code>uu</code>, <code>uu_non</code>, <code>uu_asc</code>, or <code>uu_des</code> being 0.</p>
 
+</div>
 </div>
             </section>
 
