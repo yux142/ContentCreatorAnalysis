@@ -44,7 +44,6 @@ plot_missing <- function(df, percent = FALSE) {
     geom_tile(color = 'white', alpha=0.8) +
     xlab("Feature") + 
     ylab("Missing Pattern") + 
-    # scale_y_discrete(limits = rev(levels(missing_patterns$missing_pattern))) +
     theme_bw() +
     theme(legend.position = "none",
           axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +
@@ -59,7 +58,6 @@ plot_missing <- function(df, percent = FALSE) {
     p2 <- ggplot(missing_patterns, aes(x = fct_rev(missing_pattern), y = count, fill = complete_case)) +
       geom_col(alpha=0.8) +
       coord_flip() +
-      #scale_x_discrete(limits = rev(levels(missing_patterns$missing_pattern))) +
       theme_bw() +
       theme(legend.position = "none", axis.title.y = element_blank()) +
       ylab('row count') +
@@ -74,7 +72,6 @@ plot_missing <- function(df, percent = FALSE) {
     p2 <- ggplot(missing_patterns, aes(x = fct_rev(missing_pattern), y = (count/sum(count))*100, fill = complete_case)) +
       geom_col(alpha=0.8) +
       coord_flip() +
-      #scale_x_discrete(limits = rev(levels(missing_patterns$missing_pattern))) +
       theme_bw() +
       theme(legend.position = "none", axis.title.y = element_blank()) +
       ylab('% row count') +
