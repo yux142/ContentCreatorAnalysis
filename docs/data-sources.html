@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Data sources | Status Quo of Content Creators on bilibili.com</title>
-  <meta name="description" content="Chapter 2 Data sources | Status Quo of Content Creators on bilibili.com" />
+  <title>Chapter 2 Data sources | Status Quo of Content Creators on a video sharing platform</title>
+  <meta name="description" content="Chapter 2 Data sources | Status Quo of Content Creators on a video sharing platform" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Data sources | Status Quo of Content Creators on bilibili.com" />
+  <meta property="og:title" content="Chapter 2 Data sources | Status Quo of Content Creators on a video sharing platform" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Data sources | Status Quo of Content Creators on bilibili.com" />
+  <meta name="twitter:title" content="Chapter 2 Data sources | Status Quo of Content Creators on a video sharing platform" />
   
   
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Hongtao Jiang, Yujia Xie" />
 
 
-<meta name="date" content="2021-11-14" />
+<meta name="date" content="2021-11-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="data-transformation.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -70,13 +70,25 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Creator Analysis of bilibili</a></li>
+<li><a href="./">Content Creator Analysis</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
-<li class="chapter" data-level="2" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>2</b> Data sources</a></li>
+<li class="chapter" data-level="2" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>2</b> Data sources</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="data-sources.html"><a href="data-sources.html#average-growth-gap-dataset"><i class="fa fa-check"></i><b>2.1</b> Average Growth Gap Dataset</a></li>
+<li class="chapter" data-level="2.2" data-path="data-sources.html"><a href="data-sources.html#general-information-dataset"><i class="fa fa-check"></i><b>2.2</b> General Information Dataset</a></li>
+<li class="chapter" data-level="2.3" data-path="data-sources.html"><a href="data-sources.html#conversion-rate-dataset"><i class="fa fa-check"></i><b>2.3</b> Conversion Rate Dataset</a></li>
+<li class="chapter" data-level="2.4" data-path="data-sources.html"><a href="data-sources.html#retention-information-dataset"><i class="fa fa-check"></i><b>2.4</b> Retention Information Dataset</a></li>
+<li class="chapter" data-level="2.5" data-path="data-sources.html"><a href="data-sources.html#tag-supply-demand-information-dataset"><i class="fa fa-check"></i><b>2.5</b> Tag Supply-Demand Information Dataset</a></li>
+<li class="chapter" data-level="2.6" data-path="data-sources.html"><a href="data-sources.html#user-evaluation-dataset"><i class="fa fa-check"></i><b>2.6</b> User Evaluation Dataset</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>3</b> Data transformation</a></li>
-<li class="chapter" data-level="4" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>4</b> Missing values</a></li>
+<li class="chapter" data-level="4" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>4</b> Missing values</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="missing-values.html"><a href="missing-values.html#summary"><i class="fa fa-check"></i><b>4.1</b> Summary</a></li>
+<li class="chapter" data-level="4.2" data-path="missing-values.html"><a href="missing-values.html#analysis"><i class="fa fa-check"></i><b>4.2</b> Analysis</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a></li>
 <li class="chapter" data-level="6" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>6</b> Interactive component</a></li>
 <li class="chapter" data-level="7" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>7</b> Conclusion</a></li>
@@ -91,7 +103,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Status Quo of Content Creators on bilibili.com</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Status Quo of Content Creators on a video sharing platform</a>
           </h1>
         </div>
 
@@ -101,7 +113,106 @@
             <section class="normal" id="section-">
 <div id="data-sources" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Data sources</h1>
+<p>Seven datasets are provided by the video streaming platform, with a disclaimer that:</p>
+<p>“<strong>We are solely responsible for the use of the datasets and for complying with applicable terms and conditions, including any use restrictions and attribution requirements. The datasets should not be re-used in any other projects.</strong>”</p>
+<p>Each dataset contains different content creators’ features and are used in different part of the analysis.</p>
+<div id="average-growth-gap-dataset" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Average Growth Gap Dataset</h2>
+<p><em>grow_gap_201702_202102.csv</em> - The dataset contains the average gap days for content creators to grow to the next fan base size level grouped by each season and fan base size level.
+The features are explained as following:</p>
+<ul>
+<li><p><code>season</code>: The respective season; each year has four seasons.
+(Ex: 2012-1)</p></li>
+<li><p><code>fans_level</code>: The respective fan base size level from 0 to 5.</p></li>
+<li><p><code>gap_day</code>: The geometric average gap days for content creators to grow to the respective fan base size level in the respective season.</p></li>
+<li><p><code>gap_avs</code>: The geometric average gap video count for content creators to grow to the respective fan base size level in the respective season.</p></li>
+<li><p><code>mid_gap_day</code>: The median gap days for content creators to grow to the respective fan base size level in the respective season.</p></li>
+<li><p><code>mid_avs</code>: The median gap video count for content creators to grow to the respective fan base size level in the respective season.</p></li>
+<li><p><code>up_cnt</code>: The number of content creators in this group.</p></li>
+</ul>
+</div>
+<div id="general-information-dataset" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> General Information Dataset</h2>
+<p><em>overall_status_201812_202103.csv</em> - The dataset contains general information for content creators grouped by each season and fan base size level.
+The features are explained as following:</p>
+<ul>
+<li><p><code>log_date</code>: The respective month.
+(YYYYmm)</p></li>
+<li><p><code>fans_label</code>: The respective fan base size level from 0 to 5.</p></li>
+<li><p><code>uv</code>: Number of unique content creators in the respective group and month.</p></li>
+<li><p><code>uv_new</code>: Number of NEW unique content creators in the respective group and month from last month.</p></li>
+<li><p><code>avs</code>: Number of videos uploaded by all content creators in the respective group and month in all time.</p></li>
+<li><p><code>play</code>: Number of plays that videos received by all content creators in the respective group and month in all time.</p></li>
+<li><p><code>uv_active</code>: Number of unique ACTIVE content creators in the respective group and month.</p></li>
+<li><p><code>avid_cnt</code>: Number of videos uploaded by ACTIVE content creators in the respective group and month in this month.</p></li>
+</ul>
+<p><em>overall_status_tname_201812_202103.csv</em> - The dataset contains general information for content creators grouped by each season, fan base size level, and also the tag name of the content creator.
+The features are explained as following:</p>
+<ul>
+<li><p><code>active_tname</code>: The tag for content creators.
+For example: Anime, Movie, V Log, etc.</p></li>
+<li><p><code>fans_label</code>: The fan base size label for content creators.
+It ranges from 0 to 5, representing smallest amount of subscriptions to largest amount of subscriptions.</p></li>
+<li><p><code>uu</code>: Number of unique content creators in the respective log_date month.</p></li>
+<li><p><code>uu_non</code>: Number of unique content creators in the respective log_date month that their fan base size level does not change from last month.</p></li>
+<li><p><code>uu_asc</code>: Number of unique content creators in the respective log_date month that their fan base size has increased from last month.</p></li>
+<li><p><code>uu_des</code>: Number of unique content creators in the respective log_date month that their fan base size has decreased from last month.</p></li>
+<li><p><code>uu_month_ratio</code> = Number of unique content creators in this month / Number of unique content creators in last month.</p></li>
+<li><p><code>uu_non_month_ratio</code>= <code>uu_non</code> this month / <code>uu_non</code> last month.</p></li>
+<li><p><code>uu_asc_month_ratio</code>= <code>uu_asc</code> this month / <code>uu_asc</code> last month.</p></li>
+<li><p><code>uu_des_month_ratio</code>= <code>uu_des</code> this month / <code>uu_des</code> last month.</p></li>
+</ul>
+</div>
+<div id="conversion-rate-dataset" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Conversion Rate Dataset</h2>
+<p><em>play_conversion_202001_202105.csv</em> - The dataset contains conversion rate information on user streaming funnel grouped by each month and fan base size level.
+The features are explained as following:</p>
+<ul>
+<li><p><code>log_date_month</code>: The respective month.
+(YYYYmm)</p></li>
+<li><p><code>fans_level</code>: The respective fan base size level from 0 to 5.</p></li>
+<li><p><code>all_rel_cnt</code>: Total number of new subscriptions.</p></li>
+<li><p><code>play_mid_cnt</code>: Total number of plays of videos that uploaded by the content creators in the group.</p></li>
+<li><p><code>play_tran_fans</code>: <code>all_rel_cnt</code> / <code>play_mid_cnt</code></p></li>
+<li><p><code>up_cnt</code>: Number of unique content creators in the group.</p></li>
+</ul>
+</div>
+<div id="retention-information-dataset" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Retention Information Dataset</h2>
+<p>retention_201901_202103.csv - The dataset contains content creator’s retention information grouped by each month and fan base size level.
+The features are explained as following:</p>
+<ul>
+<li><p><code>log_date_month</code>: The respective month.
+(YYYYmm)</p></li>
+<li><p><code>fans_level</code>: The respective fan base size level from 0 to 5.</p></li>
+<li><p><code>mid_all</code>: Total number of content creators.</p></li>
+<li><p><code>mid_stay</code>: Total number of content creators that retained after this month.</p></li>
+</ul>
+</div>
+<div id="tag-supply-demand-information-dataset" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Tag Supply-Demand Information Dataset</h2>
+<p><em>tname_tag_minitaag.xlsx</em> - The dataset contains supply-demand ratio and related information for content creators’ tags grouped by tag name.
+The features are explained as following:</p>
+<ul>
+<li><p><code>tname</code>: The tag name.</p></li>
+<li><p><code>supply_3month_avs</code>: The supply amount, which is defined to be the total amount of videos with the tag uploaded in the last 3 months.</p></li>
+<li><p><code>supply_pct</code>: The percentage of supply amount of the respective tag.</p></li>
+<li><p><code>demand_3month_play</code>: The demand amount, which is defined to be the total amount of videos with the tag uploaded in the last 3 months.</p></li>
+<li><p><code>demand_pct</code>: The percentage of demand amount of the respective tag.</p></li>
+<li><p><code>demand_supply_diff</code>: <code>demand_pct</code>-<code>supply_pct</code></p></li>
+</ul>
+</div>
+<div id="user-evaluation-dataset" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> User Evaluation Dataset</h2>
+<p><em>user_value_group.csv</em> - The dataset contains user evaluation information to segment users into groups based on their value.
+The features are explained as following:</p>
+<ul>
+<li><p><code>value_level</code>: The respective content creator value level from 0 to 3.</p></li>
+<li><p><code>fans_label</code>: The respective fan base size level from 1 to 3.</p></li>
+<li><p><code>up_cnt</code>: The number of content creators in this group.</p></li>
+</ul>
 
+</div>
 </div>
             </section>
 
