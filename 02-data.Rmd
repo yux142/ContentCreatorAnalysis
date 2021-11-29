@@ -1,2 +1,140 @@
+---
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
 # Data sources
 
+Seven datasets are provided by the video streaming platform, with a disclaimer that:
+
+"**We are solely responsible for the use of the datasets and for complying with applicable terms and conditions, including any use restrictions and attribution requirements. The datasets should not be re-used in any other projects.**"
+
+Each dataset contains different content creators' features and are used in different part of the analysis.
+
+## Average Growth Gap Dataset
+
+*grow_gap_201702_202102.csv* - The dataset contains the average gap days for content creators to grow to the next fan base size level grouped by each season and fan base size level.
+The features are explained as following:
+
+-   `season`: The respective season; each year has four seasons.
+    (Ex: 2012-1)
+
+-   `fans_level`: The respective fan base size level from 0 to 5.
+
+-   `gap_day`: The geometric average gap days for content creators to grow to the respective fan base size level in the respective season.
+
+-   `gap_avs`: The geometric average gap video count for content creators to grow to the respective fan base size level in the respective season.
+
+-   `mid_gap_day`: The median gap days for content creators to grow to the respective fan base size level in the respective season.
+
+-   `mid_avs`: The median gap video count for content creators to grow to the respective fan base size level in the respective season.
+
+-   `up_cnt`: The number of content creators in this group.
+
+## General Information Dataset
+
+*overall_status_201812_202103.csv* - The dataset contains general information for content creators grouped by each season and fan base size level.
+The features are explained as following:
+
+-   `log_date`: The respective month.
+    (YYYYmm)
+
+-   `fans_label`: The respective fan base size level from 0 to 5.
+
+-   `uv`: Number of unique content creators in the respective group and month.
+
+-   `uv_new`: Number of NEW unique content creators in the respective group and month from last month.
+
+-   `avs`: Number of videos uploaded by all content creators in the respective group and month in all time.
+
+-   `play`: Number of plays that videos received by all content creators in the respective group and month in all time.
+
+-   `uv_active`: Number of unique ACTIVE content creators in the respective group and month.
+
+-   `avid_cnt`: Number of videos uploaded by ACTIVE content creators in the respective group and month in this month.
+
+*overall_status_tname_201812_202103.csv* - The dataset contains general information for content creators grouped by each season, fan base size level, and also the tag name of the content creator.
+The features are explained as following:
+
+-   `active_tname`: The tag for content creators.
+    For example: Anime, Movie, V Log, etc.
+
+-   `fans_label`: The fan base size label for content creators.
+    It ranges from 0 to 5, representing smallest amount of subscriptions to largest amount of subscriptions.
+
+-   `uu`: Number of unique content creators in the respective log_date month.
+
+-   `uu_non`: Number of unique content creators in the respective log_date month that their fan base size level does not change from last month.
+
+-   `uu_asc`: Number of unique content creators in the respective log_date month that their fan base size has increased from last month.
+
+-   `uu_des`: Number of unique content creators in the respective log_date month that their fan base size has decreased from last month.
+
+-   `uu_month_ratio` = Number of unique content creators in this month / Number of unique content creators in last month.
+
+-   `uu_non_month_ratio`= `uu_non` this month / `uu_non` last month.
+
+-   `uu_asc_month_ratio`= `uu_asc` this month / `uu_asc` last month.
+
+-   `uu_des_month_ratio`= `uu_des` this month / `uu_des` last month.
+
+## Conversion Rate Dataset
+
+*play_conversion_202001_202105.csv* - The dataset contains conversion rate information on user streaming funnel grouped by each month and fan base size level.
+The features are explained as following:
+
+-   `log_date_month`: The respective month.
+    (YYYYmm)
+
+-   `fans_level`: The respective fan base size level from 0 to 5.
+
+-   `all_rel_cnt`: Total number of new subscriptions.
+
+-   `play_mid_cnt`: Total number of plays of videos that uploaded by the content creators in the group.
+
+-   `play_tran_fans`: `all_rel_cnt` / `play_mid_cnt`
+
+-   `up_cnt`: Number of unique content creators in the group.
+
+## Retention Information Dataset
+
+retention_201901_202103.csv - The dataset contains content creator's retention information grouped by each month and fan base size level.
+The features are explained as following:
+
+-   `log_date_month`: The respective month.
+    (YYYYmm)
+
+-   `fans_level`: The respective fan base size level from 0 to 5.
+
+-   `mid_all`: Total number of content creators.
+
+-   `mid_stay`: Total number of content creators that retained after this month.
+
+## Tag Supply-Demand Information Dataset
+
+*tname_tag_minitaag.xlsx* - The dataset contains supply-demand ratio and related information for content creators' tags grouped by tag name.
+The features are explained as following:
+
+-   `tname`: The tag name.
+
+-   `supply_3month_avs`: The supply amount, which is defined to be the total amount of videos with the tag uploaded in the last 3 months.
+
+-   `supply_pct`: The percentage of supply amount of the respective tag.
+
+-   `demand_3month_play`: The demand amount, which is defined to be the total amount of videos with the tag uploaded in the last 3 months.
+
+-   `demand_pct`: The percentage of demand amount of the respective tag.
+
+-   `demand_supply_diff`: `demand_pct`-`supply_pct`
+
+## User Evaluation Dataset
+
+*user_value_group.csv* - The dataset contains user evaluation information to segment users into groups based on their value.
+The features are explained as following:
+
+-   `value_level`: The respective content creator value level from 0 to 3.
+
+-   `fans_label`: The respective fan base size level from 1 to 3.
+
+-   `up_cnt`: The number of content creators in this group.
