@@ -1,5 +1,5 @@
 --- 
-title: "Status Quo of Content Creators on bilibili.com"
+title: "Status Quo of Content Creators on a video sharing platform"
 author: "Hongtao Jiang, Yujia Xie"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
