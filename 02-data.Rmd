@@ -93,8 +93,6 @@ The features are explained as following:
 
 -   `play_mid_cnt`: Total number of plays of videos that uploaded by the content creators in the group.
 
--   `play_tran_fans`: `all_rel_cnt` / `play_mid_cnt`
-
 -   `up_cnt`: Number of unique content creators in the group.
 
 ## Retention Information Dataset

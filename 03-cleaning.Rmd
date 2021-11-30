@@ -1,1 +1,64 @@
 # Data transformation
+
+## Data Loading and Cleaning
+
+Datasets are saved as csv/xlsx files and then read into R.
+
+```{r}
+library(readxl)
+
+grow_gap <- read.csv("data/grow_gap_201702_202102.csv")
+overall_status <- read.csv("data/overall_status_201812_202103.csv")
+overall_status_tname <- read.csv("data/overall_status_tname_201812_202103.csv")
+play_conversion <- read.csv("data/play_conversion_202001_202105.csv")
+retention <- read.csv("data/retention_201901_202103.csv")
+tname_tag_minitag <- read_excel("data/tname_tag_minitaag.xlsx")
+user_value_group <- read.csv("data/user_value_group.csv")
+```
+
+For *overall_status_201812_202103.csv*, there are missing values in variable `avid_cnt` that should have been 0. Therefore, all missing values are imputed with 0.
+
+```{r}
+overall_status[is.na(overall_status)] <- 0
+write.csv(overall_status, "data_cleaned/overall_status.csv")
+```
+
+For *overall_status_tname_201812_202103.csv*, the missing values are explained in the next section. All missing values are imputed with 0 as well. All the ratios are divided by a metric from last month, if the metric in last month is 0, the ratio would be NA. Therefore, all data entries in the earliest month would have all ratio data missing, resulting in missing all four ratios simultaneously. Hence, only data with `logdate` \> 20190131 is kept for validity.
+
+```{r}
+overall_status_tname <- overall_status_tname[which(overall_status_tname$log_date > 20190131), ]
+overall_status_tname[is.na(overall_status_tname)] <- 0
+write.csv(overall_status, "data_cleaned/overall_status_tname.csv")
+```
+
+## Data Preprocessing
+
+For *grow_gap_201702_202102.csv*, the variable `season` is incorrectly stored due to utf-8 encoding. While reading the file, `season` is mistakenly read as month. The format is adjusted to YYYYss (Ex: 202001 represents the first season of 2020).
+
+For *tname_tag_minitaag.xlsx*, the tag name in the file are in Chinese. Therefore, we translated all tag names into English.
+
+```{r}
+write.csv(grow_gap, "data_cleaned/grow_gap.csv")
+write.csv(tname_tag_minitag, "data_cleaned/tname_tag_minitag.csv")
+write.csv(user_value_group, "data_cleaned/user_value_group.csv")
+```
+
+## Feature Creation
+
+For *play_conversion_202001_202105.csv*, we need to calculate the respective conversion rate for each group of each month and fan base size level. The conversion rate is calculated by dividing total number of new subscriptions by total number of plays of videos that uploaded by the content creators in the group.
+
+`play_tran_fans` = `all_rel_cnt` / `play_mid_cnt`
+
+```{r}
+play_conversion$play_tran_fans <- play_conversion$all_rel_cnt / play_conversion$play_mid_cnt
+write.csv(play_conversion, "data_cleaned/play_conversion.csv")
+```
+
+For *retention_201901_202103.csv*, we need to calculate the retention rate of each group. The retention rate is calculated by dividing total number of content creators that retained after the respective month by total number of content creators in the respective group.
+
+`retention_rate` = `mid_stay` / `mid_all`
+
+```{r}
+retention$retention_rate <- retention$mid_stay / retention$mid_all
+write.csv(retention, "data_cleaned/retention.csv")
+```
