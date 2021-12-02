@@ -1,1 +1,45 @@
 # Results
+
+## Analysis of content creators' growth path
+
+The growth gap dataset is used for this part of analysis. For each fan base size level (100\~1k subscriptions, 1k\~10k subscriptions, 10k\~100k subscriptions, 100k+ subscriptions), the average day gap (DG) and videos creation gap (VCG) for content creators to reach the respective level is different and varies across time. To better understand if it has become harder for content creators to reach a certain level, line charts are plotted for DG and AVS.
+
+For the VCG, the video creation gap is positively correlated with fan base size level across time. Content creators with higher subscriptions amount will need to create more videos to grow to the next level. For content creators to reach subscriptions amount of 100\~1k and 1k\~10k, the VCGs have a growing trend and reach peaks in the second season in 2021. For content creators to reach subscriptions amount of 100\~1k and 1k\~10k, the VCG increased until the end of 2018 and then decreased to and keep around 75 videos for 2 years; it experiences a significant rise in the recent year and reaches peak as well in the second season in 2021. There are no significant VCG trends for content creators with over 100k subscriptions. The potential reason for no obvious trends is that there are limited amount of content creators with over 100+ subscriptions on the platform. The shortage of data results in limited insights of trends across time.
+
+For the DG, the days gap is not correlated with fan base size level as the DG for content creators to reach 100\~1k subscriptions increases drastically over time comparing to other levels. For content creators to reach subscriptions amount of 10k\~100k and 100k+, DG increases until the end of 2018, decreases until the second season of 2020, and then increases for a year. The trend of DG for content creators to reach 1k\~10k is similar except it had a more significant rise in the last two seasons of 2019. The major discovery is that it is unexpected very hard for content creators to grow from 0\~100 subscriptions to 100\~1k subscriptions. The hardness increases over time and it reaches peak in the most recent season.
+
+As higher the fan base size, the subscription amount interval becomes larger. For instance, 10k\~100w has an interval of 90k and 100\~1k only has an interval of 900. Therefore, one can assume that it would be harder for content creators to grow to higher fan base level size. The VCG plot supports the assumption. However, the DG plot shows that the average day gap for content creators to grow to 100\~1k subscription amount from 0\~100 has reached 160 days which is only lower than the gap days to reach 100k+ from 10k\~100k. While the video creation gap remains low, a high average days gap indicates that new content creators are not motivated to create videos. Once they create videos then they have a big possibility to grow their fan base size quickly because the VCG remains low over time for content creators to grow to 100\~1k subscription amount interval.
+
+Moreover, the trend of DG for content creators to grow to 100\~1k has a significant increasing trend. It has become harder for new content creators to increase subscriptions on the platform comparing to before. The potential cause is that: the platform has been focused on fission marketing strategies to increase user amount across the time and there are more content creators coming into the platform in the recent years. However, the resources are limited that as the user base size grows not all new content creators would be fully supported in creating videos. Therefore, it takes them longer to increase subscription amount from beginning as they are neither motivated to create videos not their videos get enough exposures in the recommending system.
+
+In conclusion, the major problem for the growth path of content creators is that new content creators are not motivated to create videos and there are more competitions for more exposures.
+
+```{r, fig.width=10, fig.height=5}
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(hrbrthemes)
+library(viridis)
+
+grow <- read.csv("data_cleaned/grow_gap.csv")
+
+grow <- grow[which(grow$fans_level > 1), ]
+
+r <- c("10w+","1w-10w","1000-1w","100-1000")
+grow$fans_level_detailed <- factor(grow$fans_level_detailed, levels = r)
+
+gapdays <- ggplot(grow, aes(season, gap_day, colour=fans_level_detailed, group=fans_level_detailed)) +
+  geom_point() +
+  geom_line() + 
+  labs(title="Average Days Gap (DG) Line Plot", x = "Season", y = "Average Day Gap", cex = 1)
+  # scale_color_manual(values = c("#003366","#006fdc","#188cff","#66b3ff"))
+
+gapavs <- ggplot(grow, aes(season, gap_avs, colour=fans_level_detailed, group=fans_level_detailed)) +
+  geom_point() +
+  geom_line() + 
+  labs(title="Videos Creation Gap (VCG) Line Plot", x = "Season", y = "Video Creation Gap", cex = 1)
+
+gapavs
+
+gapdays
+```
