@@ -20,7 +20,7 @@ overall <- overall[which(overall$fans_label > 0), ]
 r <- c("100k+","10k-100k","1k-10k","100-1k","0-100")
 overall$fans_level <- factor(overall$fans_level, levels = r)
 
-ggplot(data = overall, aes(x = log_date, y=uv_active, fill = fans_level)) +
+mau <- ggplot(data = overall, aes(x = log_date, y=uv_active, fill = fans_level)) +
   geom_bar(stat='identity') +
   theme(legend.title = element_blank()) +
   scale_fill_manual(values = c("#002344", "#0055a7", "#0a87ff","#6cb7ff", "#93caff")) +
@@ -28,6 +28,11 @@ ggplot(data = overall, aes(x = log_date, y=uv_active, fill = fans_level)) +
   theme(plot.title = element_text(lineheight=.8, face="bold", hjust = 0.5))
 
 ```
+```{r, fig.width=12, fig.height=4}
+
+mau
+```
+
 For the video creation count, a clear rising trend can be observed based on the plot. All fan base size levels' content creators produce more videos over time. As the active user amount grows across time, the video created by content creators also increases in a more steady fashion. However, the percentage of different fan base size level in video creation count is not proportional to the percentage in active user amount. Based on the percentage, we know that content creators with low subscription amount create less videos than content creators with a larger fan base size level monthly. 
 
 ```{r, fig.width=12, fig.height=4}

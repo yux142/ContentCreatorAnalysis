@@ -9,7 +9,9 @@ In this project, there is only one dataset contains missing values, the `overall
 ```{r warning=FALSE, fig.height = 10, fig.width = 12}
 source("functions.R")
 overall_status<-read.csv("data/overall_status_tname_201812_202103.csv")
-plot_missing(overall_status, percent = TRUE)
+g <- plot_missing(overall_status, percent = TRUE)
+
+g
 ```
 
 Firstly, to gain a better understanding of the dataset, the column information is as followed:
