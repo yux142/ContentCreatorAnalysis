@@ -11,10 +11,12 @@ The number of content creators on a streaming platform for Gen Z in China reache
 
 Therefore, in this project, we want to understand the status quo of the platform's content creators with various features and analyze the differences. We are going to present our analysis in four parts:
 
-1.  Analysis of content creators' growth path
+1.  Analysis of the Overall Status
 
-2.  Analysis of streaming funnel's conversion rates
+2.  Analysis of content creators' growth path
 
-3.  Analysis of content creators' tags and how different tags differ
+3.  Analysis of streaming funnel's conversion rates
 
-4.  Analysis of content creators' retention
+4.  Analysis of content creators' tags and how different tags differ
+
+5.  Analysis of content creators' retention
