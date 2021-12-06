@@ -27,7 +27,7 @@ var svg = d3.select("#my_dataviz")
 
 
 //Read the data
-d3.csv("https://raw.githubusercontent.com/yux142/ContentCreatorAnalysis/main/data_cleaned/play_conversion.csv").then(function(data) {
+d3.csv("https://raw.githubusercontent.com/yux142/ContentCreatorAnalysis/main/data_cleaned/play_conversion_new.csv").then(function(data) {
 
     var allGroup = ["100k+","10k-100k","1k-10k","100-1k","0-100"];
     var parseTime = d3.timeParse("%Y/%m/%d");
