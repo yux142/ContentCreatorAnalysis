@@ -1,3 +1,12 @@
 # Interactive component
 
+<script src="https://d3js.org/d3.v6.js"></script>
 
+<h2>Analysis of Subscription Conversion Rate </h2>
+  
+  <select id="selectButton"></select>
+  <div id="my_dataviz"></div>
+
+<script src="scripts/linechart.js"></script>
+
+The interactive line plot above shows the Subscription Conversion Rate for different groups of content creators with different fan base size level. It shows the trend for the rate of converting from playing the content creator's video to subscripting to him/her. You can explore the trend of the conversion rate over the past year and choose the respective fan base size level in the selection box.
