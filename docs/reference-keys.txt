@@ -21,3 +21,7 @@ analysis-of-overall-status
 analysis-of-streaming-funnels-conversion-rates
 analysis-of-content-creators-retention
 analysis-of-content-creators-tags-and-how-different-tags-differ
+main-findings
+limitations
+future-roadmap
+lessons-learned
