@@ -18,7 +18,7 @@ Firstly, to gain a better understanding of the dataset, the column information i
 
 -   `active_tname`: The tag for content creators. For example: Anime, Movie, V Log, etc.
 
--   `fans_label`: The fan base size label for content creators. It ranges from 0 to 5, representing smallest amount of subscriptions to largest amount of subscriptions.
+-   `fans_label`: The fan base size label for content creators. It ranges from 0 to 5, representing the smallest amount of subscriptions to the largest amount of subscriptions.
 
 -   `uu`: Number of unique content creators in the respective log_date month.
 
@@ -40,4 +40,4 @@ Based on the plot, there are four columns that contains missing values: `uu_mont
 
 While all the ratios are divided by a metric from last month, if the metric in last month is 0, the ratio would be NA. Therefore, all data entries in the earliest month would have all ratio data missing, resulting in missing all four ratios simultaneously. The columns with the highest missing percentage are `uu_asc` and `uu_des`. The reason is that there are a limited number of subscribers for some particular tag and fan base size level, so the probability of the number of content creators in the respective log_date month that their fan base size has increased/decreased from last month is comparably low.
 
-In conclusion, the reason for all missing values is that last month' `uu`, `uu_non`, `uu_asc`, or `uu_des` being 0.
+In conclusion, the reason for all missing values is that last month's `uu`, `uu_non`, `uu_asc`, or `uu_des` being 0.

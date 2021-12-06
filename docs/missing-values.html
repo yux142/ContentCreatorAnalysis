@@ -140,7 +140,7 @@
 <p>Firstly, to gain a better understanding of the dataset, the column information is as followed:</p>
 <ul>
 <li><p><code>active_tname</code>: The tag for content creators. For example: Anime, Movie, V Log, etc.</p></li>
-<li><p><code>fans_label</code>: The fan base size label for content creators. It ranges from 0 to 5, representing smallest amount of subscriptions to largest amount of subscriptions.</p></li>
+<li><p><code>fans_label</code>: The fan base size label for content creators. It ranges from 0 to 5, representing the smallest amount of subscriptions to the largest amount of subscriptions.</p></li>
 <li><p><code>uu</code>: Number of unique content creators in the respective log_date month.</p></li>
 <li><p><code>uu_non</code>: Number of unique content creators in the respective log_date month that their fan base size level does not change from last month.</p></li>
 <li><p><code>uu_asc</code>: Number of unique content creators in the respective log_date month that their fan base size has increased from last month.</p></li>
@@ -152,7 +152,7 @@
 </ul>
 <p>Based on the plot, there are four columns that contains missing values: <code>uu_month_ratio</code>, <code>uu_non_month_ratio</code>, <code>uu_asc_month_ratio</code>, and <code>uu_des_month_ratio</code>. These four variables are calculated using the last month’s number of unique content creators with the respective fan base size and tag name divided by this month’s number of unique content creators with the respective fan base size and tag name. In other words, they depend on <code>uu</code>, <code>uu_non</code>, <code>uu_asc</code>, and <code>uu_des</code>, respectively.</p>
 <p>While all the ratios are divided by a metric from last month, if the metric in last month is 0, the ratio would be NA. Therefore, all data entries in the earliest month would have all ratio data missing, resulting in missing all four ratios simultaneously. The columns with the highest missing percentage are <code>uu_asc</code> and <code>uu_des</code>. The reason is that there are a limited number of subscribers for some particular tag and fan base size level, so the probability of the number of content creators in the respective log_date month that their fan base size has increased/decreased from last month is comparably low.</p>
-<p>In conclusion, the reason for all missing values is that last month’ <code>uu</code>, <code>uu_non</code>, <code>uu_asc</code>, or <code>uu_des</code> being 0.</p>
+<p>In conclusion, the reason for all missing values is that last month’s <code>uu</code>, <code>uu_non</code>, <code>uu_asc</code>, or <code>uu_des</code> being 0.</p>
 
 </div>
 </div>
