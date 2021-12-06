@@ -20,4 +20,4 @@ A major direction that future analysis can be based on it to further split conte
 
 ## Lessons Learned
 
-During this project, we have learned not only how to efficiently clean and preprocess data, but also sometimes precise graph could be more useful and straightforward than fancier ones in real-life scenario. As data scientists and analysts, we have realized that "As there is business fire, there is data smoke." We want to use what we have learned to help businesses to serve customers better in the future.WWW
+During this project, we have learned not only how to efficiently clean and preprocess data, but also sometimes precise graph could be more useful and straightforward than fancier ones in real-life scenario. As data scientists and analysts, we have realized that "As there is business fire, there is data smoke." We want to use what we have learned to help businesses to serve customers better in the future.
