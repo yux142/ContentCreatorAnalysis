@@ -10,17 +10,17 @@ Seven datasets are provided by the video streaming platform, with a disclaimer t
 
 "**We are solely responsible for the use of the datasets and for complying with applicable terms and conditions, including any use restrictions and attribution requirements. The datasets should not be re-used in any other projects.**"
 
-Each dataset contains different content creators' features and are used in different part of the analysis.
+Each dataset contains different content creators' features and is used in a different part of the analysis.
 
 ## Average Growth Gap Dataset
 
 *grow_gap_201702_202102.csv* - The dataset contains the average gap days for content creators to grow to the next fan base size level grouped by each season and fan base size level.
-The features are explained as following:
+The features are explained as follows:
 
 -   `season`: The respective season; each year has four seasons.
     (Ex: 2012-1)
 
--   `fans_level`: The respective fan base size level from 0 to 5.
+-   `fans_level`: The respective fan base size level is from 0 to 5.
 
 -   `gap_day`: The geometric average gap days for content creators to grow to the respective fan base size level in the respective season.
 
@@ -35,7 +35,7 @@ The features are explained as following:
 ## General Information Dataset
 
 *overall_status_201812_202103.csv* - The dataset contains general information for content creators grouped by each season and fan base size level.
-The features are explained as following:
+The features are explained as follows:
 
 -   `log_date`: The respective month.
     (YYYYmm)
@@ -55,13 +55,13 @@ The features are explained as following:
 -   `avid_cnt`: Number of videos uploaded by ACTIVE content creators in the respective group and month in this month.
 
 *overall_status_tname_201812_202103.csv* - The dataset contains general information for content creators grouped by each season, fan base size level, and also the tag name of the content creator.
-The features are explained as following:
+The features are explained as follows:
 
 -   `active_tname`: The tag for content creators.
     For example: Anime, Movie, V Log, etc.
 
 -   `fans_label`: The fan base size label for content creators.
-    It ranges from 0 to 5, representing smallest amount of subscriptions to largest amount of subscriptions.
+    It ranges from 0 to 5, representing the smallest amount of subscriptions to the largest amount of subscriptions.
 
 -   `uu`: Number of unique content creators in the respective log_date month.
 
@@ -82,28 +82,28 @@ The features are explained as following:
 ## Conversion Rate Dataset
 
 *play_conversion_202001_202105.csv* - The dataset contains conversion rate information on user streaming funnel grouped by each month and fan base size level.
-The features are explained as following:
+The features are explained as follows:
 
 -   `log_date_month`: The respective month.
     (YYYYmm)
 
--   `fans_level`: The respective fan base size level from 0 to 5.
+-   `fans_level`: The respective fan base size level is from 0 to 5.
 
 -   `all_rel_cnt`: Total number of new subscriptions.
 
--   `play_mid_cnt`: Total number of plays of videos that uploaded by the content creators in the group.
+-   `play_mid_cnt`: Total number of plays of videos uploaded by the content creators in the group.
 
 -   `up_cnt`: Number of unique content creators in the group.
 
 ## Retention Information Dataset
 
-retention_201901_202103.csv - The dataset contains content creator's retention information grouped by each month and fan base size level.
-The features are explained as following:
+retention_201901_202103.csv - The dataset contains the content creator's retention information grouped by each month and fan base size level.
+The features are explained as follows:
 
 -   `log_date_month`: The respective month.
     (YYYYmm)
 
--   `fans_level`: The respective fan base size level from 0 to 5.
+-   `fans_level`: The respective fan base size level is from 0 to 5.
 
 -   `mid_all`: Total number of content creators.
 
@@ -112,13 +112,13 @@ The features are explained as following:
 ## Tag Supply-Demand Information Dataset
 
 *tname_tag_minitaag.xlsx* - The dataset contains supply-demand ratio and related information for content creators' tags grouped by tag name.
-The features are explained as following:
+The features are explained as follows:
 
 -   `tname`: The tag name.
 
 -   `supply_3month_avs`: The supply amount, which is defined to be the total amount of videos with the tag uploaded in the last 3 months.
 
--   `supply_pct`: The percentage of supply amount of the respective tag.
+-   `supply_pct`: The percentage of the supply amount of the respective tag.
 
 -   `demand_3month_play`: The demand amount, which is defined to be the total amount of videos with the tag uploaded in the last 3 months.
 
@@ -129,7 +129,7 @@ The features are explained as following:
 ## User Evaluation Dataset
 
 *user_value_group.csv* - The dataset contains user evaluation information to segment users into groups based on their value.
-The features are explained as following:
+The features are explained as follows:
 
 -   `value_level`: The respective content creator value level from 0 to 3.
 
