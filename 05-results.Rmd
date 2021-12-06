@@ -13,7 +13,7 @@ library(dplyr)
 library(hrbrthemes)
 library(viridis)
 
-overall <- read.csv("data_cleaned/overall_status.csv")
+overall <- read.csv("data_cleaned/overall_status_new.csv")
 
 overall <- overall[which(overall$fans_label > 0), ]
 
@@ -66,7 +66,7 @@ The growth gap dataset is used for this part of analysis. For each fan base size
 For the VCG, the video creation gap is positively correlated with fan base size level across time. Content creators with higher subscriptions amount will need to create more videos to grow to the next level. For content creators to reach subscriptions amount of 100\~1k and 1k\~10k, the VCGs have a growing trend and reach peaks in the second season in 2021. For content creators to reach subscriptions amount of 100\~1k and 1k\~10k, the VCG increased until the end of 2018 and then decreased to and keep around 75 videos for 2 years; it experiences a significant rise in the recent year and reaches peak as well in the second season in 2021. There are no significant VCG trends for content creators with over 100k subscriptions. The potential reason for no obvious trends is that there are limited amount of content creators with over 100+ subscriptions on the platform. The shortage of data results in limited insights of trends across time.
 
 ```{r, fig.width=10, fig.height=5}
-grow <- read.csv("data_cleaned/grow_gap.csv")
+grow <- read.csv("data_cleaned/grow_gap_new.csv")
 
 grow <- grow[which(grow$fans_level > 1), ]
 
@@ -107,7 +107,7 @@ Besides growth path, retention rate can also be used to analyze if a certain gro
 
 ```{r, fig.width=10, fig.height=5}
 
-retention <- read.csv("data_cleaned/retention.csv")
+retention <- read.csv("data_cleaned/retention_new.csv")
 r <- c("100k+","10k-100k","1k-10k","100-1k","0-100")
 retention$fans_label <- factor(retention$fans_label, levels = r)
 
