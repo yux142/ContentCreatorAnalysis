@@ -6,7 +6,7 @@ Before conducting detailed analysis, we will take a look at the overall status f
 
 For the monthly active user amount (MAU), one can see a overall increasing trend based on the plot, while the active user amount decreases in early 2020 and reaches peak in late 2020 and early 2021; the active user amount dropped again after reaching peak. Moreover, there are a significant amount of content creators with relatively small fan base size (0-100 subscriptions). The trend is heavily influenced by the active content creators with small fan base size. Based on our research, there was a major event on the platform at the end of 2020 to conduct fission marketing to attract new content creators, which is the potential major cause of the significant high active user amount during the period of time. Hence, if the OKR/KPI of the platform during the company quarter is solely based on active user amount (MAU), more campaigns around new content creators should be deployed more to keep more small content creators active. However, we do not believe doing so is beneficial to the platform as a whole and we need to take a deeper look at the video creation amount trend and the video play amount trend.
 
-```{r, fig.width=12, fig.height=4}
+```{r, fig.width=14, fig.height=4}
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
@@ -48,12 +48,12 @@ mau
 
 For the video creation count, a clear rising trend can be observed based on the plot. All fan base size levels' content creators produce more videos over time. As the active user amount grows across time, the video created by content creators also increases in a more steady fashion. However, the percentage of different fan base size level in video creation count is not proportional to the percentage in active user amount. Based on the percentage, we know that content creators with low subscription amount create less videos than content creators with a larger fan base size level monthly. 
 
-```{r, fig.width=12, fig.height=4}
+```{r, fig.width=14, fig.height=4}
 vcc
 ```
 The video play amount increase over time as well, but surprisingly that the distribution of video play amount over groups of content creators is significantly different with MAU and video creation amount. Content creators with high subscription amount (100k+) is the most prominent group that obtains the highest amount of video plays regardless of the fact that the number of content creators within the group is comparably very small. We can make an assumption that the platform does not give enough exposure to relative new content creators with smaller fan base size. The recommender algorithm on the platform favors more towards head users. While it is rational to design an algorithm like that to recommend popular videos to toC users (viewers), it is not beneficial to the development of toB users on the platform. Based on the three plots, it is obvious that tail toB users are not given enough exposures and enough rewards to keep them creating videos.
 
-```{r, fig.width=12, fig.height=4}
+```{r, fig.width=14, fig.height=4}
 vpa
 ```
 To further investifate the problem, we will take a deeper look at the growth path of content creators with different fan base size level.
@@ -70,18 +70,19 @@ grow <- read.csv("data_cleaned/grow_gap.csv")
 
 grow <- grow[which(grow$fans_level > 1), ]
 
-r <- c("10w+","1w-10w","1000-1w","100-1000")
+r <- c("100k+","10k-100k","1k-10k","100-1k","0-100")
 grow$fans_level_detailed <- factor(grow$fans_level_detailed, levels = r)
 
 gapdays <- ggplot(grow, aes(season, gap_day, colour=fans_level_detailed, group=fans_level_detailed)) +
   geom_point() +
   geom_line() + 
+  scale_color_manual(values = c("#002344", "#0055a7", "#0a87ff","#6cb7ff", "#93caff")) +
   labs(title="Average Days Gap (DG) Line Plot", x = "Season", y = "Average Day Gap", cex = 1)
-  # scale_color_manual(values = c("#002344", "#0055a7", "#0a87ff","#6cb7ff", "#93caff"))
 
 gapavs <- ggplot(grow, aes(season, gap_avs, colour=fans_level_detailed, group=fans_level_detailed)) +
   geom_point() +
   geom_line() + 
+  scale_color_manual(values = c("#002344", "#0055a7", "#0a87ff","#6cb7ff", "#93caff")) +
   labs(title="Videos Creation Gap (VCG) Line Plot", x = "Season", y = "Video Creation Gap", cex = 1)
 
 gapavs
@@ -97,18 +98,59 @@ As higher the fan base size, the subscription amount interval becomes larger. Fo
 
 Moreover, the trend of DG for content creators to grow to 100\~1k has a significant increasing trend. It has become harder for new content creators to increase subscriptions on the platform comparing to before. The potential cause is that: the platform has been focused on fission marketing strategies to increase user amount across the time and there are more content creators coming into the platform in the recent years. However, the resources are limited that as the user base size grows not all new content creators would be fully supported in creating videos. Therefore, it takes them longer to increase subscription amount from beginning as they are neither motivated to create videos not their videos get enough exposures in the recommending system.
 
-In conclusion, the major problem for the growth path of content creators is that new content creators are not motivated to create videos and there are more competitions for more exposures.
+In conclusion, the major problem for the growth path of content creators is that new content creators are not motivated to create videos and there are more competitions for more exposures. The conclusion supports our assumption in the first part that tail toB users are not given enough exposures and enough rewards to keep them creating videos. 
 
 
-## Analysis of streaming funnel's conversion rates
+## Analysis of content creators' retention
+
+Besides growth path, retention rate can also be used to analyze if a certain group of users are more likely to have a high churn rate. Based on the plot, one can see that the retention rate is positively correlated with the fan base size level. While a content creator has more subscriptions, he/she is more likely to stay on the platform. Moreover, the stability of the retention rate trend is also correlated with the fan base size level. The content creator groups with relatively large fan base size have more stable retention rate trend, while the group with smallest subscription amount has the least stable trend. We can conclude that the platform has not taken any actions to retain content creators in the past two years that there are no positive trend found in the plot. Particularly, content creators with 0~100 subscription amounts have the lowerst and the most unstable retention rate.
 
 ```{r, fig.width=10, fig.height=5}
 
-conversion <- read.csv("data_cleaned/play_conversion.csv")
+retention <- read.csv("data_cleaned/retention.csv")
+r <- c("100k+","10k-100k","1k-10k","100-1k","0-100")
+retention$fans_label <- factor(retention$fans_label, levels = r)
 
+ret <- ggplot(retention, aes(log_date_month, retention_rate, colour=fans_label, group=fans_label)) +
+  geom_point() +
+  geom_line() + 
+  scale_color_manual(values = c("#002344", "#0055a7", "#0a87ff","#6cb7ff", "#93caff")) +
+  labs(title="Retention Rate Plot", x = "Month", y = "Retention Rate", cex = 1)
 
-
+ret
 ```
+
+## Analysis of content creators' tags and how different tags differ
+
+On the platform, each content creator and video created by them will be given tags based on the content. To understand if particular tags have a higher demand or supply on the platform, we conducted analysis and made plot below. The plots have tag names as the y-axis and supply percentage, demand percentage, or the difference of the two percentages as the x-axis. The supply percentage is calculated by using the number of videos created with the respective tag divided by the total number of videos of all tags. The demand percentage is calculated by using the number of plays on the videos with the respective tag divided by the total number of plays on videos of all tags. The Demand-Supply difference is calculated by subtracting demand percentage from the supply percentage. Tags with positive Demand-Supply difference indicates that the demand is larger than the supply, and a negative Demand-Supply difference indicates that the supply is larger than demand.
+
+```{r}
+
+tname <- read.csv("data_cleaned/tname_tag_minitag.csv")
+
+diff <- ggplot(tname, aes(value, y = tname)) + 
+    geom_point(stat="identity", mapping = aes(x = demand_supply_diff, y = reorder(tname, demand_supply_diff), col = "demand_supply_diff"), color = '#6666ff') +
+    theme(plot.title = element_text(hjust = 0.5)) +
+    labs(title="Demand-Supply Difference Dot Plot", x = "demand_supply_diff", y = "Tag Name", cex = 1) +
+    geom_vline(aes(xintercept=0), linetype="dashed", size = 0.6)
+
+supply <- ggplot(tname, aes(value, y = tname)) + 
+    geom_point(stat="identity", mapping = aes(x = supply_pct, y = reorder(tname, supply_pct), col = "supply_pct"), color = '#65a065') +
+    theme(plot.title = element_text(hjust = 0.5)) +
+    labs(title="Supply Percentage Dot Plot", x = "supply_pct", y = "Tag Name", cex = 1)
+
+demand <- ggplot(tname, aes(value, y = tname)) + 
+    geom_point(stat="identity", mapping = aes(x = demand_pct, y = reorder(tname, demand_pct), col = "demand_pct"), color = '#ff6666') +
+    theme(plot.title = element_text(hjust = 0.5)) +
+    labs(title="Demand Percentage Dot Plot", x = "demand_pct", y = "Tag Name", cex = 1)
+
+supply
+demand
+diff
+```
+Based on the first plot, the supply percentage plot, one can see that the videos with 'life' and 'game' are supplied the most on the platform. They are also the tags with the highest demand on the platform according to the demand percentage plot. However, based on the demand-supply difference plot, they have the lowest demand-supply difference. Based on our research, videos with tag 'life' mostly include Vlogs, life tips, funny videos, etc. It has included a large amount of sub tags that covers the most videos. Many of the videos has a low creation cost that does not require the content creators to spend time and experience to make. Therefore, many videos with the tag 'life' have low quality or highly repetitive. The tag 'game' has the same problem that many videos with tag 'game' are simply screen recordings of games with no explanation and post-productions. While the platform's target audience is Gen Z, it is reasonable to assume that gaming and Vloging are among the most popular topic on the platform. However, their demand-supply differences are both negative. Hence, no further actions should be taken to increase the supply from the content creator end (toB).
+
+Based on the demand-supply difference plot, 'cartoon', 'technology', 'news', and 'anime' are the four tags with the highest difference. While the platform is firstly famous for ACGN (Animation, Comic, Game, Novel) culture, it is reasonable that the 'cartoon' and 'anime' are among the tags with the highest difference. Videos with this two tags includes explanation of anime story line, post-editing of cartoon or anime, fan-made cartoons, etc, which all require a significant amount of efforts and time to produce. The same also applies to 'technology' and 'news' that they requires not only efforts to edit but also knowledge to produce the video. These tags should be promoted more on the platforms and campaigns should also be designed to motivate content creators to create more videos with these tags.
 
 
 

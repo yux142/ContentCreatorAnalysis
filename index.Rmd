@@ -15,8 +15,6 @@ Therefore, in this project, we want to understand the status quo of the platform
 
 2.  Analysis of content creators' growth path
 
-3.  Analysis of streaming funnel's conversion rates
+3.  Analysis of content creators' retention
 
 4.  Analysis of content creators' tags and how different tags differ
-
-5.  Analysis of content creators' retention
