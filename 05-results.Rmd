@@ -30,6 +30,7 @@ mau <- ggplot(data = overall, aes(x = log_date, y=uv_active, fill = fans_level))
   scale_fill_manual(values = c("#002344", "#0055a7", "#0a87ff","#6cb7ff", "#93caff")) +
   labs(title="Monthly Active Users (MAU)", x = "Month", y = "Active User Amount", cex = 1) +
   theme(plot.title = element_text(lineheight=.8, face="bold", hjust = 0.5)) +
+  theme_bw() +
   theme(legend.position = "none",
         axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 
@@ -39,6 +40,7 @@ vcc <- ggplot(data = overall, aes(x = log_date, y=avs, fill = fans_level)) +
   scale_fill_manual(values = c("#002344", "#0055a7", "#0a87ff","#6cb7ff", "#93caff")) +
   labs(title="Video Creation Count", x = "Month", y = "Video Creation Amount", cex = 1) +
   theme(plot.title = element_text(lineheight=.8, face="bold", hjust = 0.5)) +
+  theme_bw() +
   theme(legend.position = "none",
         axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 
@@ -48,6 +50,7 @@ vpa <- ggplot(data = overall, aes(x = log_date, y=play, fill = fans_level)) +
   scale_fill_manual(values = c("#002344", "#0055a7", "#0a87ff","#6cb7ff", "#93caff")) +
   labs(title="Video Play Amount", x = "Month", y = "Play Amount", cex = 1) +
   theme(plot.title = element_text(lineheight=.8, face="bold", hjust = 0.5)) +
+  theme_bw() +
   theme(legend.position = "none",
         axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 ```
@@ -89,13 +92,15 @@ gapdays <- ggplot(grow, aes(season, gap_day, colour=fans_level_detailed, group=f
   geom_point() +
   geom_line() + 
   scale_color_manual(values = c("#002344", "#0055a7", "#0a87ff","#6cb7ff", "#93caff")) +
-  labs(title="Average Days Gap (DG) Line Plot", x = "Season", y = "Average Day Gap", cex = 1)
+  labs(title="Average Days Gap (DG) Line Plot", x = "Season", y = "Average Day Gap", cex = 1) +
+  theme_bw()
 
 gapavs <- ggplot(grow, aes(season, gap_avs, colour=fans_level_detailed, group=fans_level_detailed)) +
   geom_point() +
   geom_line() + 
   scale_color_manual(values = c("#002344", "#0055a7", "#0a87ff","#6cb7ff", "#93caff")) +
-  labs(title="Videos Creation Gap (VCG) Line Plot", x = "Season", y = "Video Creation Gap", cex = 1)
+  labs(title="Videos Creation Gap (VCG) Line Plot", x = "Season", y = "Video Creation Gap", cex = 1) +
+  theme_bw() 
 
 gapavs
 ```
@@ -127,7 +132,10 @@ ret <- ggplot(retention, aes(log_date_month, retention_rate, colour=fans_label, 
   geom_point() +
   geom_line() + 
   scale_color_manual(values = c("#002344", "#0055a7", "#0a87ff","#6cb7ff", "#93caff")) +
-  labs(title="Retention Rate Plot", x = "Month", y = "Retention Rate", cex = 1)
+  labs(title="Retention Rate Plot", x = "Month", y = "Retention Rate", cex = 1) +
+  theme_bw() +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 
 ret
 ```
@@ -143,18 +151,21 @@ tname <- read.csv("data_cleaned/tname_tag_minitag.csv")
 diff <- ggplot(tname, aes(value, y = tname)) + 
     geom_point(stat="identity", mapping = aes(x = demand_supply_diff, y = reorder(tname, demand_supply_diff), col = "demand_supply_diff"), color = '#6666ff') +
     theme(plot.title = element_text(hjust = 0.5)) +
+    theme_bw() +
     labs(title="Demand-Supply Difference Dot Plot", x = "demand_supply_diff", y = "Tag Name", cex = 1) +
     geom_vline(aes(xintercept=0), linetype="dashed", size = 0.6)
 
 supply <- ggplot(tname, aes(value, y = tname)) + 
     geom_point(stat="identity", mapping = aes(x = supply_pct, y = reorder(tname, supply_pct), col = "supply_pct"), color = '#65a065') +
     theme(plot.title = element_text(hjust = 0.5)) +
-    labs(title="Supply Percentage Dot Plot", x = "supply_pct", y = "Tag Name", cex = 1)
+    labs(title="Supply Percentage Dot Plot", x = "supply_pct", y = "Tag Name", cex = 1) + 
+    theme_bw()
 
 demand <- ggplot(tname, aes(value, y = tname)) + 
     geom_point(stat="identity", mapping = aes(x = demand_pct, y = reorder(tname, demand_pct), col = "demand_pct"), color = '#ff6666') +
+    theme_bw()+
     theme(plot.title = element_text(hjust = 0.5)) +
-    labs(title="Demand Percentage Dot Plot", x = "demand_pct", y = "Tag Name", cex = 1)
+    labs(title="Demand Percentage Dot Plot", x = "demand_pct", y = "Tag Name", cex = 1) 
 
 supply
 demand
