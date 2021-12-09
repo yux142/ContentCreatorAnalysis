@@ -2,13 +2,13 @@
 
 ## Main Findings
 
-Based on our analysis on the content creators, we have the following findings:
+Based on our analysis of the content creators, we have the following findings:
 
--   The platform does not give enough exposure to relative new content creators with smaller amount of subscriptions. The recommender algorithm on the platform favors more towards popular users. Most of the new content creators are not motivated to create videos and there are more competitions for more exposures; they are not being rewarded to keep them creating videos.
+-   The platform does not give enough exposure to relative new content creators with a smaller amount of subscriptions. The recommender algorithm on the platform favors more popular users. Most of the new content creators are not motivated to create videos and there are more competitions for more exposures; they are not being rewarded to keep them creating videos.
 
--   The platform has not taken any actions to retain more active content creators in the past two years that there are no positive trend found for retention rate. Particularly, content creators with small subscription amounts have the lowest and the most unstable retention rate.
+-   The platform has not taken any actions to retain more active content creators in the past two years and there is no positive trend found for retention rate. Particularly, content creators with small subscription amounts have the lowest and the most unstable retention rate.
 
--   Tags with high demand-supply difference should be promoted more on the platforms and campaigns should also be designed to motivate content creators to create more videos with these tags.
+-   Tags with a high demand-supply difference should be promoted more on the platforms and campaigns should also be designed to motivate content creators to create more videos with these tags.
 
 ## Limitations
 
@@ -16,8 +16,8 @@ All datasets that we obtained are summary data that we could not conduct any obs
 
 ## Future Roadmap
 
-A major direction that future analysis can be based on it to further split content creators into group. While content creators are only split based on the number of subscriptions, they can also be split based on their value to the platform and also their potential to develop. It could be challenging to define either a valuable user or a potential user, but it can help we gain a more comprehensive understanding of the platform. For example, a user's value can be calculated based on the total number of plays that his/her videos have received and also average amount of plays per video.
+A major direction that future analysis can be based on is to further split content creators into groups. While content creators are only split based on the number of subscriptions, they can also be split based on their value to the platform and also their potential to develop. It could be challenging to define either a valuable user or a potential user, but it can help us gain a more comprehensive understanding of the platform. For example, a user's value can be calculated based on the total number of plays that his/her videos have received and also the average amount of plays per video.
 
 ## Lessons Learned
 
-During this project, we have learned not only how to efficiently clean and preprocess data, but also sometimes precise graph could be more useful and straightforward than fancier ones in real-life scenario. As data scientists and analysts, we have realized that "As there is business fire, there is data smoke." We want to use what we have learned to help businesses to serve customers better in the future.
+During this project, we have learned not only how to efficiently clean and preprocess data, but also sometimes precise graphs could be more useful and straightforward than fancier ones in a real-life scenario. As data scientists and analysts, we have realized that "As there is business fire, there is data smoke." We want to use what we have learned to help businesses to serve customers better in the future.
