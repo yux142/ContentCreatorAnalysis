@@ -26,21 +26,27 @@ mau <- ggplot(data = overall, aes(x = log_date, y=uv_active, fill = fans_level))
   theme(legend.title = element_blank()) +
   scale_fill_manual(values = c("#002344", "#0055a7", "#0a87ff","#6cb7ff", "#93caff")) +
   labs(title="Monthly Active Users (MAU)", x = "Month", y = "Active User Amount", cex = 1) +
-  theme(plot.title = element_text(lineheight=.8, face="bold", hjust = 0.5))
+  theme(plot.title = element_text(lineheight=.8, face="bold", hjust = 0.5)) +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 
 vcc <- ggplot(data = overall, aes(x = log_date, y=avs, fill = fans_level)) +
   geom_bar(stat='identity') +
   theme(legend.title = element_blank()) +
   scale_fill_manual(values = c("#002344", "#0055a7", "#0a87ff","#6cb7ff", "#93caff")) +
   labs(title="Video Creation Count", x = "Month", y = "Video Creation Amount", cex = 1) +
-  theme(plot.title = element_text(lineheight=.8, face="bold", hjust = 0.5))
+  theme(plot.title = element_text(lineheight=.8, face="bold", hjust = 0.5)) +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 
 vpa <- ggplot(data = overall, aes(x = log_date, y=play, fill = fans_level)) +
   geom_bar(stat='identity') +
   theme(legend.title = element_blank()) +
   scale_fill_manual(values = c("#002344", "#0055a7", "#0a87ff","#6cb7ff", "#93caff")) +
   labs(title="Video Play Amount", x = "Month", y = "Play Amount", cex = 1) +
-  theme(plot.title = element_text(lineheight=.8, face="bold", hjust = 0.5))
+  theme(plot.title = element_text(lineheight=.8, face="bold", hjust = 0.5)) +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 ```
 ```{r, fig.width=12, fig.height=4}
 
