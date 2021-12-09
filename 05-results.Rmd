@@ -128,7 +128,7 @@ retention <- read.csv("data_cleaned/retention_new.csv")
 r <- c("100k+","10k-100k","1k-10k","100-1k","0-100")
 retention$fans_label <- factor(retention$fans_label, levels = r)
 
-ret <- ggplot(retention, aes(log_date_month, retention_rate, colour=fans_label, group=fans_label)) +
+ret <- ggplot(retention, aes(log_date_month, retention_rate, color=fans_label, group=fans_label)) +
   geom_point() +
   geom_line() + 
   scale_color_manual(values = c("#002344", "#0055a7", "#0a87ff","#6cb7ff", "#93caff")) +
