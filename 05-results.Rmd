@@ -21,6 +21,9 @@ overall <- overall[which(overall$fans_label > 0), ]
 r <- c("100k+","10k-100k","1k-10k","100-1k","0-100")
 overall$fans_level <- factor(overall$fans_level, levels = r)
 
+# change YYYY_MMDD to YYYY_MM
+overall$log_date <- substr(overall$log_date, 0, 7)
+
 mau <- ggplot(data = overall, aes(x = log_date, y=uv_active, fill = fans_level)) +
   geom_bar(stat='identity') +
   theme(legend.title = element_blank()) +
