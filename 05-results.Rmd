@@ -146,22 +146,22 @@ tname <- read.csv("data_cleaned/tname_tag_minitag.csv")
 
 diff <- ggplot(tname, aes(value, y = tname)) + 
     geom_point(stat="identity", mapping = aes(x = demand_supply_diff, y = reorder(tname, demand_supply_diff), col = "demand_supply_diff"), color = '#6666ff') +
-    theme(plot.title = element_text(hjust = 0.5)) +
     theme_bw() +
-    labs(title="Demand-Supply Difference Dot Plot", x = "demand_supply_diff", y = "Tag Name", cex = 1) +
-    geom_vline(aes(xintercept=0), linetype="dashed", size = 0.6)
+    labs(title="Demand-Supply Difference Dot Plot", x = "Demand-Supply Difference", y = "Tag Name", cex = 1) +
+    geom_vline(aes(xintercept=0), linetype="dashed", size = 0.6) +
+    theme(plot.title = element_text(hjust = 0.5))
 
 supply <- ggplot(tname, aes(value, y = tname)) + 
     geom_point(stat="identity", mapping = aes(x = supply_pct, y = reorder(tname, supply_pct), col = "supply_pct"), color = '#65a065') +
-    theme(plot.title = element_text(hjust = 0.5)) +
-    labs(title="Supply Percentage Dot Plot", x = "supply_pct", y = "Tag Name", cex = 1) + 
-    theme_bw()
+    labs(title="Supply Percentage Dot Plot", x = "Supply Percentage", y = "Tag Name", cex = 1) + 
+    theme_bw() +
+    theme(plot.title = element_text(hjust = 0.5))
 
 demand <- ggplot(tname, aes(value, y = tname)) + 
     geom_point(stat="identity", mapping = aes(x = demand_pct, y = reorder(tname, demand_pct), col = "demand_pct"), color = '#ff6666') +
-    theme_bw()+
-    theme(plot.title = element_text(hjust = 0.5)) +
-    labs(title="Demand Percentage Dot Plot", x = "demand_pct", y = "Tag Name", cex = 1) 
+    theme_bw() +
+    labs(title="Demand Percentage Dot Plot", x = "Demand Percentage", y = "Tag Name", cex = 1) +
+    theme(plot.title = element_text(hjust = 0.5)) 
 
 supply
 demand
