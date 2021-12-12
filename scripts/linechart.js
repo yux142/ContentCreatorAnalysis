@@ -57,7 +57,8 @@ d3.csv("https://raw.githubusercontent.com/yux142/ContentCreatorAnalysis/main/dat
       .range([ 0, width ]);
     svg.append("g")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
+      .call(d3.axisBottom(x)
+              .tickFormat(d3.timeFormat("%Y-%m")));
 
     // Add Y axis
     var y = d3.scaleLinear()
