@@ -4,7 +4,7 @@
 
 Based on our analysis of the content creators, we have the following findings:
 
--   The platform does not give enough exposure to relative new content creators with a smaller amount of subscriptions. The recommender algorithm on the platform favors more popular users. Most of the new content creators are not motivated to create videos and there are more competitions for more exposures; they are not being rewarded to keep them creating videos.
+-   The platform does not give enough exposure to relative new content creators with a smaller amount of subscriptions. The recommender algorithm on the platform favors more popular users. Most of the new content creators are not motivated to create videos and there are more competitions for more exposures; they are not being rewarded to keep them active.
 
 -   The platform has not taken any actions to retain more active content creators in the past two years and there is no positive trend found for retention rate. Particularly, content creators with small subscription amounts have the lowest and the most unstable retention rate.
 
