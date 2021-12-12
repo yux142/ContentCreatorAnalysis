@@ -31,8 +31,7 @@ mau <- ggplot(data = overall, aes(x = log_date, y=uv_active, fill = fans_level))
   labs(title="Monthly Active Users (MAU)", x = "Month", y = "Active User Amount", cex = 1) +
   theme(plot.title = element_text(lineheight=.8, face="bold", hjust = 0.5)) +
   theme_bw() +
-  theme(legend.position = "none",
-        axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 
 vcc <- ggplot(data = overall, aes(x = log_date, y=avs, fill = fans_level)) +
   geom_bar(stat='identity') +
@@ -41,8 +40,7 @@ vcc <- ggplot(data = overall, aes(x = log_date, y=avs, fill = fans_level)) +
   labs(title="Video Creation Count", x = "Month", y = "Video Creation Amount", cex = 1) +
   theme(plot.title = element_text(lineheight=.8, face="bold", hjust = 0.5)) +
   theme_bw() +
-  theme(legend.position = "none",
-        axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 
 vpa <- ggplot(data = overall, aes(x = log_date, y=play, fill = fans_level)) +
   geom_bar(stat='identity') +
@@ -51,8 +49,7 @@ vpa <- ggplot(data = overall, aes(x = log_date, y=play, fill = fans_level)) +
   labs(title="Video Play Amount", x = "Month", y = "Play Amount", cex = 1) +
   theme(plot.title = element_text(lineheight=.8, face="bold", hjust = 0.5)) +
   theme_bw() +
-  theme(legend.position = "none",
-        axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 ```
 ```{r, fig.width=12, fig.height=4}
 
