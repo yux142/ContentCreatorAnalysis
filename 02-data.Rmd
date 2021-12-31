@@ -120,7 +120,7 @@ The features are explained as follows:
 
 -   `supply_pct`: The percentage of the supply amount of the respective tag.
 
--   `demand_3month_play`: The demand amount, which is defined to be the total amount of videos with the tag uploaded in the last 3 months.
+-   `demand_3month_play`: The amount of plays on the videos with the tag.
 
 -   `demand_pct`: The percentage of demand amount of the respective tag.
 
